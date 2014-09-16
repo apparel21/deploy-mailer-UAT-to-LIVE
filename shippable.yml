@@ -1,0 +1,28 @@
+language: python
+
+python:
+  - 2.6
+
+script:
+  - rm -fr companyservice-uat
+  - git clone git@heroku.com:companyservice-uat.git
+  - cd companyservice-uat
+  - git push -f git@heroku.com:companyservice-live.git master
+
+  - rm -fr emailservice-uat
+  - git clone git@heroku.com:emailservice-uat.git
+  - cd emailservice-uat
+  - git push -f git@heroku.com:emailservice-live.git master
+
+  - rm -fr loginmail-uat
+  - git clone git@heroku.com:loginmail-uat.git
+  - cd loginmail-uat
+  - git push -f git@heroku.com:loginmail-live.git master
+
+  - rm -fr mailer-uat
+  - git clone git@heroku.com:mailer-uat.git
+  - cd mailer-uat
+  - git push -f git@heroku.com:mailer-live.git master
+
+
+after_success:
